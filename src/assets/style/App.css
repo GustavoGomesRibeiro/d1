@@ -1,0 +1,241 @@
+/* ---- Defafault Aside Bar ---- */
+
+.container-aside{
+    height: 768px;
+    width: 71px;
+    background: #1A1731 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+}
+.icon-header {
+
+}
+
+.icon-footer{
+    margin: 100px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo img {
+    width: 80%;
+    margin: 40px 10px;
+}
+
+.icon {
+    margin: 40px 0;
+    
+}
+
+.divider{
+    height: 2px;
+    width: 50%;
+    background: #07B8FF;
+    margin-left: 13px;
+}
+.icons-fa {
+    margin: 20px;
+    list-style-type: none;
+}
+/* ---- Default Header ---- */
+
+.container-header{
+    left: 71px;
+    height: 90px;
+    width: 1329px;
+    background: #FAFBFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.logo-header{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+.logo-header img{
+    width: 100px;
+    margin-left: 30px;
+    border-radius: 5px;
+    border: solid 1px #EBEEF6;
+}
+
+.user {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background: #117EFF;
+    margin-left: 150px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.user p {
+    color: #fff;
+    margin-left: 9px;
+    font-weight: bolder;
+}
+
+.container-components{
+    display: flex;
+    margin-left: auto;
+    padding: 0 50px;
+}
+.search {
+    width: 296px;
+    height: 35px;
+    border-radius: 5px;
+    background: #fff;
+    margin-right: 20px;
+}
+
+.new-journey {
+    width: 150px;
+    height: 35px;
+    border-radius: 5px;
+    background: #117EFF 0% 0% no-repeat padding-box;
+    display: flex;
+    align-items: center;
+}
+
+.icon-plus {
+    padding: 0 10px;
+}
+
+.text-newjourney{
+    color: #fff;
+    font: bold;
+}
+
+/* ---- Default layout ---- */
+
+.container-layout { 
+    /* background: #fff; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    /* height: 100vh; */
+    /* position: absolute; */
+    /* left: 50%; */
+}
+
+/* ---- Main ---- */
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'menu header header header header header'
+    'menu main main main main main'
+    'menu main main main main main';
+  grid-gap: 10px;
+  /* background-color: #2196F3; */
+  padding: 10px;
+  margin:100px 0;
+}
+
+.grid-container > div {
+  background-color: #FAFBFF;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.menu {
+     grid-area: menu; 
+     width: 200px;
+}
+.header { 
+    grid-area: header; 
+}
+.main { 
+    grid-area: main; 
+}
+
+.activity {
+    
+}
+
+.activity-label p{
+    text-align: left;
+    font: normal normal bold 16px/18px Gotham;
+    letter-spacing: 0px;
+    color: #3E4157;
+    opacity: 1;
+    text-align: center;
+}
+.activity-sublabel{
+    /* margin: 20px 63px; */
+    width: 100%;
+}
+.activity-sublabel a {
+    text-align: left;
+    font: normal normal normal 13px/19px Gotham;
+    letter-spacing: 0px;
+    color: #3E4157;
+    opacity: 1;
+    margin: 5px 0;
+    text-decoration:none; 
+    /* color: #117EFF; */
+}
+.activity-sublabel button {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+}
+.activity-sublabel button:hover {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: #117EFF
+}
+
+
+.table-header{
+    top: 195px;
+    left: 506px;
+    width: 699px;
+    height: 45px;
+    margin: 10px 0;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+}
+.text-header p{
+    color: #9196AB;
+    text-align: center;
+    font: normal normal bold 13px/14px Gotham;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+.table{
+    background: #fff;
+    top: 195px;
+    left: 506px;
+    width: 699px;
+    height: 45px;
+    margin: 10px 0;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+}
+
+.text-table p {
+    text-align: center;
+    font: normal normal bold 13px/14px Gotham;
+    letter-spacing: 0px;
+    color: #3E4157;
+    opacity: 1;
+    text-align: initial;
+    margin: 0 40px;
+}
+
