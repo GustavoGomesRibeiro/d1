@@ -13,9 +13,7 @@
 }
 
 .icon-footer{
-    margin: 100px 0;
-    display: flex;
-    justify-content: space-between;
+    margin: 80px 0;
 }
 
 .logo img {
@@ -24,8 +22,7 @@
 }
 
 .icon {
-    margin: 40px 0;
-    
+    margin: 40px 0; 
 }
 
 .divider{
@@ -43,7 +40,8 @@
 .container-header{
     left: 71px;
     height: 90px;
-    width: 1329px;
+    /* width: 1329px; */
+    width: auto;
     background: #FAFBFF 0% 0% no-repeat padding-box;
     opacity: 1;
     display: flex;
@@ -159,7 +157,7 @@
 
 .grid-container > div {
   background-color: #FAFBFF;
-  text-align: center;
+  /* text-align: center; */
   padding: 20px 0;
   font-size: 30px;
 }
@@ -190,6 +188,7 @@
 .activity-sublabel{
     /* margin: 20px 63px; */
     width: 100%;
+    margin: 0 40px;
 }
 .activity-sublabel a {
     text-align: left;
@@ -257,5 +256,8 @@
     opacity: 1;
     text-align: initial;
     margin: 0 40px;
+}
+.svg { 
+    display: flex;
 }
 
