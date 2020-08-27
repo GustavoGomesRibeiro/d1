@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../../assets/style/App.css';
 
-import apiService from '../../services/';
 import { Link } from 'react-router-dom';
 
+import apiService from '../../services/';
 import Journey from '../../components/journey';
-// import table from '../../assets/icons/table.svg';
 import plane from '../../assets/icons/paper-plane.svg';
 import playCircle from '../../assets/icons/play-circle.svg';
 import pen from '../../assets/icons/pen.svg';
@@ -18,7 +17,7 @@ export default function Home() {
   const [filter, setFilter] = useState([]);
   // const history = useHistory();
 
-  useEffect((event) => {
+  useEffect(() => {
     async function loadResults() {
       // const id = event
       const response = await apiService.get(`/journey`)
@@ -36,12 +35,23 @@ export default function Home() {
     loadFilters();
   }, [])
 
-  function handleClick(e) {
-    e.preventDefault();
-    // if (filters.name === 'Em Execução') {
-    //   return <Redirect to="/Execution" />
-    // }
-    console.log('O link foi clicado.');
+  useEffect(() => {
+    const filtered = data.filter((item) => item.new);
+    //  {filtered}
+    console.log(filtered, 'opa sera que foi?')
+  }, [data])
+
+  function handleClick(name) {
+    const newData = filter.map((item) => {
+       if (item.name === name) {
+        return {...item, filtro:!item.new}
+      } else {
+        return item
+      }
+    });
+    console.log(name, newData);
+    // setFilter(newFilter);
+    setData(newData);
   }
 
 
@@ -50,7 +60,22 @@ export default function Home() {
       <div className="grid-container">
 
         <div className="menu">
-          <Journey/>
+          {/* <Journey/> */}
+          <div className='activity'>
+            <div className='activity-label'>
+              <p>Jornadas</p>
+            </div>
+
+            <div className='activity-sublabel'>
+              {filter.map((items) => {
+                return (
+                  <div key={items.id}>
+                      <a href='#' onClick={() => handleClick(items.name)}> {items.name} <button>{items.quantity}</button></a>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
         </div>
 
         <div className="header">
@@ -71,16 +96,7 @@ export default function Home() {
         </div>
 
         <div className="main">
-          {
-            data.map((items) => {
-              
-              {/* const valores = {
-                teste:'Em execução',
-                teste:'Ativa',
-                teste:'Configurando',
-                teste:'Ociosa',
-                teste:'Concluido'
-              } */}
+          { data.map((items) => {
 
               if(items.status === 1 ){
                 return (
