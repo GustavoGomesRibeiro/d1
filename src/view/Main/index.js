@@ -31,16 +31,19 @@ export default function Home() {
     loadFilters();
   }, []);
 
-  function handleClick(filterId) {
-    const newData = initialData.filter((item) => item.status == filterId);
-
-    if (filterId == 0) {
+function filtro(filterId) {
+    if(filterId == 0) {
       setFiltered(initialData);
-    } else {
-      setFiltered(newData);
     }
-  }
-
+    const id = filterId; 
+    apiService
+        .get(`/journey/${id}`)
+        .then(response => {
+            const filtered = response.data;
+            console.log("filtros", filtered);
+            setFiltered(filtered);
+        });
+}
 
   return (
     <>
@@ -56,14 +59,14 @@ export default function Home() {
               {filter.map((items) => {
                 return (
                   <div key={items.id}>
-                     <a onClick={() => handleClick(items.id)}>
+                     <a onClick={() => filtro(items.id)}>
                       {items.id === 0 ? [<img src={table} height={20} width={20}/>,'Todos'] : ''} 
                       {items.id === 1 ? [<img src={plane} height={20} width={20}/>,'Em execução'] : ''} 
                       {items.id === 2 ? [<img src={playCircle} height={20} width={20}/>,'Ativo'] : ''} 
                       {items.id === 3 ? [<img src={pen} height={20} width={20}/>,'Configurando'] : ''} 
                       {items.id === 4 ? [<img src={bed} height={20} width={20}/>,'Ociosa'] : ''} 
                       {items.id === 5 ? [<img src={check} height={20} width={20}/>,'Concluido'] : ''} 
-                        <button > {items.quantity}</button>
+                        <button> {items.quantity}</button>
                       </a>
                   </div>
                 )
