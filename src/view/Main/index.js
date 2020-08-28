@@ -33,7 +33,7 @@ export default function Home() {
 
 function filtro(filterId) {
     if(filterId == 0) {
-      setFiltered(initialData);
+     return setFiltered(initialData);
     }
     const id = filterId; 
     apiService
