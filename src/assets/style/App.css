@@ -315,7 +315,7 @@
     margin: 5px 0;
     text-decoration:none; 
     cursor: pointer;
-    
+    display: flex;
 }
 
 .activity-sublabel a:hover {
@@ -378,6 +378,7 @@
     opacity: 1;
     text-align: initial;
     margin: 0 40px;
+    display: flex;
 }
 .svg { 
     display: flex;

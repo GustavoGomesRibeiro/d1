@@ -43,7 +43,6 @@ const DefaultHeader = () => {
                                     right: 0,
                                     bottom: 0,
                                     backgroundColor: 'rgba(26, 23, 49, 0.75)',
-                                    // opacity: 0.5,
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center'
