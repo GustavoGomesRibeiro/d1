@@ -23,8 +23,8 @@ html, body #root{
 }
 
 body {
-    background: #282c34;
-    /* background: #FAFBFF; */
+    /* background: #282c34; */
+    background: #FAFBFF;
     -webkit-font-smoothing: antialiased;
 }
 

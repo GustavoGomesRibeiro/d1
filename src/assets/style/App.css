@@ -13,7 +13,7 @@
 }
 
 .icon-footer{
-    margin: 80px 0;
+    margin: 40px 0;
 }
 
 .logo img {
@@ -31,10 +31,53 @@
     background: #07B8FF;
     margin-left: 13px;
 }
+
+.divider-modal{
+    height: 2px;
+    width: 90%;
+    background: #ccc;
+    margin-left: 13px;
+}
 .icons-fa {
     margin: 20px;
     list-style-type: none;
 }
+.tooltip{
+    position: relative;
+    /* display: inline-block; */
+    border-bottom: 1px dotted black;
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 100px;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    left: 105%;
+    text-align: center;
+    font: normal normal bold 13px/14px Gotham;
+    letter-spacing: 0px;
+    color: rgba(145, 150, 171, 1);
+    opacity: 1;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+  }
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
 /* ---- Default Header ---- */
 
 .container-header{
@@ -91,6 +134,44 @@
     font-weight: bolder;
 }
 
+.tooltip-header{
+    position: relative;
+    border-bottom: 1px dotted black;
+}
+.tooltip-header .tooltiptext-header {
+    visibility: hidden;
+    width: 130px;
+    height: 35px;
+    background-color: #1A1731;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    left: 105%;
+    text-align: center;
+    font: normal normal bold 13px/14px Gotham;
+    letter-spacing: 0px;
+    color: #fff;
+    opacity: 1;
+  }
+  
+  .tooltip-header .tooltiptext-header::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #1A1731 transparent transparent;
+  }
+
+.tooltip-header:hover .tooltiptext-header {
+    visibility: visible;
+  }
+
+
 .container-components{
     display: flex;
     margin-left: auto;
@@ -132,6 +213,44 @@
     font: bold;
 }
 
+.description-modal {
+    margin: 10px 0;
+}
+
+.name-journey {
+    text-align: left;
+    font: normal normal normal 13px/19px Gotham;
+    letter-spacing: 0px;
+    color: #3E4157;
+}
+.text-modal {
+    text-align: left;
+    font: normal normal normal 13px/19px Gotham;
+    letter-spacing: 0px;
+    color: #9196AB;
+    opacity: 1;
+}
+
+.button-modal {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.continue{
+    color: #117EFF;
+    font: normal normal bold 13px/14px Gotham;
+    letter-spacing: 0px;
+    opacity: 1;
+    margin: 0 10px;
+}
+.cancel {
+    font: normal normal bold 13px/14px Gotham;
+    letter-spacing: 0px;
+    color: #9196AB;
+    opacity: 1;
+}
+
 /* ---- Default layout ---- */
 
 .container-layout { 
@@ -150,14 +269,12 @@
     'menu main main main main main'
     'menu main main main main main';
   grid-gap: 10px;
-  /* background-color: #2196F3; */
   padding: 10px;
   margin:100px 0;
 }
 
 .grid-container > div {
   background-color: #FAFBFF;
-  /* text-align: center; */
   padding: 20px 0;
   font-size: 30px;
 }
@@ -186,7 +303,6 @@
     text-align: center;
 }
 .activity-sublabel{
-    /* margin: 20px 63px; */
     width: 100%;
     margin: 0 40px;
 }
@@ -198,8 +314,14 @@
     opacity: 1;
     margin: 5px 0;
     text-decoration:none; 
-    /* color: #117EFF; */
+    cursor: pointer;
+    
 }
+
+.activity-sublabel a:hover {
+    color: #117EFF;
+}
+
 .activity-sublabel button {
     width: 20px;
     height: 20px;

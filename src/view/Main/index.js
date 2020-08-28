@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../../assets/style/App.css';
-
-import { Link } from 'react-router-dom';
-
 import apiService from '../../services/';
-import Journey from '../../components/journey';
+
+
+import table from '../../assets/icons/table.svg';
 import plane from '../../assets/icons/paper-plane.svg';
 import playCircle from '../../assets/icons/play-circle.svg';
 import pen from '../../assets/icons/pen.svg';
@@ -13,45 +12,33 @@ import check from '../../assets/icons/check.svg';
 
 export default function Home() {
 
-  const [data, setData] = useState([]);
+  const [initialData, setInitialData] = useState([]);
+  const [filtered, setFiltered] = useState([]);
   const [filter, setFilter] = useState([]);
-  // const history = useHistory();
 
   useEffect(() => {
     async function loadResults() {
-      // const id = event
-      const response = await apiService.get(`/journey`)
-
-      setData(response.data)
+      const response = await apiService.get(`/journey`);
+      setInitialData(response.data);
+      setFiltered(response.data);
     }
     loadResults();
-  }, [])
 
-  useEffect(() => {
     async function loadFilters() {
-      const response = await apiService.get('/filter')
-      setFilter(response.data)
+      const response = await apiService.get('/filter');
+      setFilter(response.data);
     }
     loadFilters();
-  }, [])
+  }, []);
 
-  useEffect(() => {
-    const filtered = data.filter((item) => item.new);
-    //  {filtered}
-    console.log(filtered, 'opa sera que foi?')
-  }, [data])
+  function handleClick(filterId) {
+    const newData = initialData.filter((item) => item.status == filterId);
 
-  function handleClick(name) {
-    const newData = filter.map((item) => {
-       if (item.name === name) {
-        return {...item, filtro:!item.new}
-      } else {
-        return item
-      }
-    });
-    console.log(name, newData);
-    // setFilter(newFilter);
-    setData(newData);
+    if (filterId == 0) {
+      setFiltered(initialData);
+    } else {
+      setFiltered(newData);
+    }
   }
 
 
@@ -60,7 +47,6 @@ export default function Home() {
       <div className="grid-container">
 
         <div className="menu">
-          {/* <Journey/> */}
           <div className='activity'>
             <div className='activity-label'>
               <p>Jornadas</p>
@@ -70,7 +56,15 @@ export default function Home() {
               {filter.map((items) => {
                 return (
                   <div key={items.id}>
-                      <a href='#' onClick={() => handleClick(items.name)}> {items.name} <button>{items.quantity}</button></a>
+                     <a onClick={() => handleClick(items.id)}>
+                      {items.id === 0 ? [<img src={table} height={20} width={20}/>,'Todos'] : ''} 
+                      {items.id === 1 ? [<img src={plane} height={20} width={20}/>,'Em execução'] : ''} 
+                      {items.id === 2 ? [<img src={playCircle} height={20} width={20}/>,'Ativo'] : ''} 
+                      {items.id === 3 ? [<img src={pen} height={20} width={20}/>,'Configurando'] : ''} 
+                      {items.id === 4 ? [<img src={bed} height={20} width={20}/>,'Ociosa'] : ''} 
+                      {items.id === 5 ? [<img src={check} height={20} width={20}/>,'Concluido'] : ''} 
+                        <button > {items.quantity}</button>
+                      </a>
                   </div>
                 )
               })}
@@ -96,102 +90,31 @@ export default function Home() {
         </div>
 
         <div className="main">
-          { data.map((items) => {
-
-              if(items.status === 1 ){
+              {filtered.map((items) => {
                 return (
                   <div key={items.id} className='table'>
-                  <div className='text-table svg'>
-                    <p>{items.name}</p>
+                    <div className='text-table svg'>
+                      <p>{items.name}</p>
+                    </div>
+                    <div className='text-table svg'>
+                      <p>{items.recipients}</p>
+                    </div>
+                    <div className='text-table svg'>
+                      <p>{items.success}</p>
+                    </div>
+                    <div className='text-table svg'>
+                      <p>
+                        {items.status === 1 ? [<img src={plane} height={20} width={20}/>,'Em execução'] : ''} 
+                        {items.status === 2 ? [<img src={playCircle} height={20} width={20}/>, 'Ativo'] : ''}
+                        {items.status === 3 ? [<img src={pen} height={20} width={20}/>, 'Configurando'] : ''}
+                        {items.status === 4 ? [<img src={bed} height={20} width={20}/>, 'Ociosa'] : ''}
+                        {items.status === 5 ? [<img src={check} height={20} width={20}/>, 'Concluido'] : ''}
+                      </p>
+                    </div>
                   </div>
-                  <div className='text-table svg'>
-                    <p>{items.recipients}</p>
-                  </div>
-                  <div className='text-table svg'>
-                    <p>{items.success}</p>
-                  </div>
-                  <div className='text-table svg'>
-                    <img src={plane} height={20} width={20}/><p>Em Execução</p>
-                  </div>
-                </div>
                 )
-              }
-              if(items.status === 2){
-                return (
-                  <div key={items.id} className='table'>
-                  <div className='text-table svg'>
-                    <p>{items.name}</p>
-                  </div>
-                  <div className='text-table svg'>
-                    <p>{items.recipients}</p>
-                  </div>
-                  <div className='text-table svg'>
-                    <p>{items.success}</p>
-                  </div>
-                  <div className='text-table svg'>
-                    <img src={playCircle} height={20} width={20}/><p>Ativa</p>
-                  </div>
-                </div>
-                )
-              }
-              if(items.status === 3){
-                return (
-                  <div key={items.id} className='table'>
-                  <div className='text-table svg'>
-                    <p>{items.name}</p>
-                  </div>
-                  <div className='text-table svg'>
-                    <p>{items.recipients}</p>
-                  </div>
-                  <div className='text-table svg'>
-                    <p>{items.success}</p>
-                  </div>
-                  <div className='text-table svg'>
-                    <img src={pen} height={20} width={20}/><p>Configurando</p>
-                  </div>
-                </div>
-                )
-              }
-              if(items.status === 4){
-                return (
-                  <div key={items.id} className='table'>
-                  <div className='text-table svg'>
-                    <p>{items.name}</p>
-                  </div>
-                  <div className='text-table svg'>
-                    <p>{items.recipients}</p>
-                  </div>
-                  <div className='text-table svg'>
-                    <p>{items.success}</p>
-                  </div>
-                  <div className='text-table svg'>
-                    <img src={bed} height={20} width={20}/><p>Ociosa</p>
-                  </div>
-                </div>
-                )
-              }
-              if(items.status === 5){
-                return (
-                  <div key={items.id} className='table'>
-                  <div className='text-table svg'>
-                    <p>{items.name}</p>
-                  </div>
-                  <div className='text-table svg'>
-                    <p>{items.recipients}</p>
-                  </div>
-                  <div className='text-table svg'>
-                    <p>{items.success}</p>
-                  </div>
-                  <div className='text-table svg'>
-                    <img src={check} height={20} width={20}/><p>Concluido</p>
-                  </div>
-                </div>
-                )
-              }
-            })
-          }
+              })}
         </div>
-
       </div>
     </>
   );

@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaChartPie, FaRocket, FaUserFriends, FaCloud, FaExternalLinkAlt, FaGem, FaTools, FaExchangeAlt, FaSignOutAlt } from 'react-icons/fa';
 import logo from '../../assets/images/logotipo-branco.png';
 
 import  chartPie  from '../../assets/icons/chart-pie.svg';
@@ -22,20 +21,19 @@ export default function DefaultAside() {
                     <img src={logo} />
                 </div>
 
-                <div className='icon-header'>
-                    {/* <div className=''> */}
+                <div className='icon-header '>
                     <ul className='icon'>
-                        <li className="icons-fa">
-                            <a href='#'>  <img src={chartPie}/></a>
+                        <li className="icons-fa tooltip ">
+                            <a href='#'> <img src={chartPie}/><span className='tooltiptext'>Análises</span></a>
                         </li>
-                        <li className="icons-fa">
-                            <a href='#'> <img src={rocket}/></a>
+                        <li className="icons-fa tooltip">
+                            <a href='#'> <img src={rocket}/><span className='tooltiptext'>Jornadas</span></a>
                         </li>
-                        <li className="icons-fa">
-                            <a href='#'> <img src={userFriends}/></a>
+                        <li className="icons-fa tooltip">
+                            <a href='#'> <img src={userFriends}/><span className='tooltiptext'>Clientes</span></a>
                         </li>
-                        <li className="icons-fa">
-                            <a href='#'>  <img src={cloud}/></a>
+                        <li className="icons-fa tooltip">
+                            <a href='#'>  <img src={cloud}/><span className='tooltiptext'>CGM Cloud</span></a>
                         </li>
                     </ul>
                 </div>
@@ -44,25 +42,25 @@ export default function DefaultAside() {
 
                 <div>
                     <ul className='icon'>
-                        <li className="icons-fa">
-                            <a href='#'>  <img src={linkAlt}/></a>
+                        <li className="icons-fa tooltip">
+                            <a href='#'>  <img src={linkAlt}/><span className='tooltiptext'>Versão 01</span></a>
                         </li>
                     </ul>
                 </div> 
 
                 <div className='icon-footer'>
                     <ul>       
-                        <li className="icons-fa">
-                            <a href='#'>  <img src={gem}/></a>
+                        <li className="icons-fa tooltip">
+                            <a href='#'>  <img src={gem}/><span className='tooltiptext'>Administração</span></a>
                         </li>
-                        <li className="icons-fa">
-                            <a href='#'>  <img src={tools}/></a>
+                        <li className="icons-fa tooltip">
+                            <a href='#'>  <img src={tools}/><span className='tooltiptext'>Help Desk</span></a>
                         </li>
-                        <li className="icons-fa">
-                            <a href='#'>  <img src={exchangeAlt}/></a>
+                        <li className="icons-fa tooltip">
+                            <a href='#'>  <img src={exchangeAlt}/><span className='tooltiptext'>Trocar Conta</span></a>
                         </li>
-                        <li className="icons-fa">
-                            <a href='#'>  <img src={signOut}/></a>
+                        <li className="icons-fa tooltip">
+                            <a href='#'>  <img src={signOut}/><span className='tooltiptext'>Sair</span></a>
                         </li>
                     </ul>
                 </div>
