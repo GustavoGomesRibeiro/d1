@@ -1,7 +1,5 @@
-# d1
 
 # Aplication Web Direct One
-
 # Notes
 Writing this project with React Js😉.
 
